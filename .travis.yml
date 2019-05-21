@@ -14,3 +14,16 @@ after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   - docker push asaldivar/trimmerwork-client
   - docker push asaldivar/trimmerwork-nginx
+
+deploy:
+  provider: elasticbeanstalk
+  region: us-west-2
+  app: trimmerwork
+  env: Trimmerwork-env
+  bucket_name: elasticbeanstalk-us-west-2-002769441755
+  bucket_path: trimmerwork
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: $AWS_SECRET_KEY
