@@ -10,5 +10,7 @@ script:
 
 after_success:
   - docker build -t asaldivar/trimmerwork-client .
+  - docker build -t asaldivar/trimmerwork-nginx ./nginx
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   - docker push asaldivar/trimmerwork-client
+  - docker push asaldivar/trimmerwork-nginx
