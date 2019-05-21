@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`With Snapshot Testing App shows "Hello world!" 1`] = `
+Array [
+  <a
+    href="/about"
+    onClick={[Function]}
+  >
+    About
+  </a>,
+  <h1>
+    Home
+  </h1>,
+]
+`;

@@ -1,0 +1,14 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t asaldivar/tw-test -f Dockerfile.dev .
+
+script:
+  - docker run asaldivar/tw-test npm run test
+
+after_success:
+  - docker build -t asaldivar/trimmerwork-client .
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  - docker push asaldivar/trimmerwork-client
