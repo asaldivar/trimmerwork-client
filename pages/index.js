@@ -4,7 +4,7 @@ import Link from 'next/link'
 const Index = () => (
   <>
     <Link href="/about">
-      <a>about</a>
+      <a>About</a>
     </Link>
     <h1>Home</h1>
   </>
